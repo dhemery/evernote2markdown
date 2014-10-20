@@ -1,0 +1,2 @@
+# Delete each empty line that precedes an empty line.
+/^$/N;/\n$/D

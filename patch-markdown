@@ -1,0 +1,26 @@
+# In between the YAML header start and end markers...
+/^---/,/^\.\.\./ {
+    # Remove the meta tags I don't care about.
+    /^altitude: /d
+    /^author: /d
+    /^created: /d
+    /^exporter-version: /d
+    /^latitude: /d
+    /^longitude: /d
+    /^source: /d
+    /^updated: /d
+
+    # Wrap the keywords in square brackets, and 
+    # rename them as tags.
+    s/^keywords: '*\([^']*\)'*/tags: [\1]/
+}
+
+# Replace pandoc's end-of-YAML marker (...) with ---
+s/^\.\.\./---/
+
+# Delete span start and end tags.
+s|</*span[^>]*>||g
+
+# Delete div start and end tags.
+s|</*div[^>]*>||g
+

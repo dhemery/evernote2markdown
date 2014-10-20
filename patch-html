@@ -1,0 +1,25 @@
+#Concatenate the file into one line
+{
+    :more-lines
+    $!N;
+    s/\n//g
+    t more-lines
+}
+
+# Move "trailing" <br/> outside of other elements.
+/<br\/>/{
+    :more-brs
+    # Consolidate series of <br/>
+    s|<br/><br/>|<br/>|g
+    t more-brs
+    # Remove empty <b> tags.
+    s|<b></b>||g
+    t more-brs
+    # Move "trailing" <br> outside of one end tag.
+    s|<br/></([^>]+)>|</\1><br/>|g
+    t more-brs
+}
+
+# Replace each <br/> with an empty paragraph
+s|<br/>|<p/>|g
+
