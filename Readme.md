@@ -10,7 +10,7 @@ Dale's tools to translate Evernote's HTML exports to Markdown.
 **Result:**
 
 *   Markdown files in `./markdown/`
-*   Intermediate HTML files in `./intermediate/,`
+*   Intermediate HTML files in `./intermediate/`,
     in case you want to see what
     the 'patch-html' step did.
 *   Original files unchanged in `./from-evernote/`
