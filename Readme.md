@@ -18,7 +18,7 @@ Dale's tools to translate Evernote's HTML exports to Markdown.
 **The steps `evernote2markdown` takes:**
 
 1.  Copy HTML files from `./from-evernote/` to `./intermediate/`
-1.  Clean up the HTML files using `sed` with the `patch-html` script.
+1.  Clean up the intermediate HTML files using `sed` with the `patch-html` script.
 1.  Run `pandoc` to convert the intermediate HTML files to markdown,
     and place the results in `./markdown/`
 1.  Clean up the markdown files using `sed` with the `patch-markdown` script.
