@@ -29,7 +29,7 @@ entries.each do |entry|
   markdown = File.join(markdown_dir, markdown_file_for(entry))
   FileUtils.cp_r html, intermediate
   `sed -E -i '' -f patch-html #{intermediate}`
-  `pandoc --no-wrap -s "#{intermediate}" -o #{markdown}`
+  `pandoc --wrap=none -s "#{intermediate}" -o #{markdown}`
   `sed -i '' -f patch-markdown #{markdown}`
   `sed -i '' -f collapse-blank-lines #{markdown}`
 end
